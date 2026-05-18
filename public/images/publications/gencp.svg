@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="GenCP publication thumbnail">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#090d13"/>
+      <stop offset="1" stop-color="#1b2936"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M110 414c135-156 258-156 370 0s237 157 370 0 235-155 300 0" stroke="#79d7ff" stroke-width="10" opacity=".8"/>
+    <path d="M110 348c135-156 258-156 370 0s237 157 370 0 235-155 300 0" stroke="#b5ffe1" stroke-width="5" opacity=".55"/>
+    <path d="M110 482c135-156 258-156 370 0s237 157 370 0 235-155 300 0" stroke="#ffffff" stroke-width="3" opacity=".22"/>
+  </g>
+  <g opacity=".38">
+    <rect x="720" y="110" width="300" height="180" rx="20" fill="#0d151d" stroke="#79d7ff"/>
+    <circle cx="792" cy="200" r="34" fill="#79d7ff" opacity=".25"/>
+    <circle cx="870" cy="200" r="34" fill="#b5ffe1" opacity=".22"/>
+    <circle cx="948" cy="200" r="34" fill="#79d7ff" opacity=".18"/>
+  </g>
+  <text x="96" y="122" fill="#f4fbff" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700">GenCP</text>
+  <text x="98" y="174" fill="#abdff2" font-family="Inter, Arial, sans-serif" font-size="24">Generative modeling of coupled physics</text>
+  <text x="98" y="580" fill="#d5fff0" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">ICLR 2026</text>
+</svg>

@@ -1,0 +1,41 @@
+@use "../breakpoints.scss" as breakpoints;
+
+.hover {
+    transition: var(--transition-micro-medium);
+
+    &:hover {
+        transform: translateX(var(--static-space-4));
+    }
+}
+
+.inlineIntro {
+    line-height: 1.75;
+
+    a {
+        display: inline !important;
+        white-space: normal;
+    }
+}
+
+.inlineIntro a,
+.inlineLink {
+    text-decoration-line: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 0.18em !important;
+    text-decoration-color: color-mix(in srgb, currentColor 46%, transparent) !important;
+    transition: text-decoration-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        text-decoration-color: currentColor;
+    }
+}
+
+@media (max-width: breakpoints.$s) {
+    .textAlign {
+        text-align: center;
+    }
+
+    .blockAlign {
+        align-self: center;
+    }
+}

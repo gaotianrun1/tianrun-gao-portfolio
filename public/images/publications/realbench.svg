@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="RealBench publication thumbnail">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#071114"/>
+      <stop offset="1" stop-color="#12323a"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#9ee7ef" stroke-opacity=".12" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <path d="M120 480c150-120 230-70 340-170s220-170 360-110 190 30 260-40" fill="none" stroke="#58d1e8" stroke-width="12" stroke-linecap="round" opacity=".7"/>
+  <path d="M130 520c130-80 210-30 320-95s240-105 390-20 205 50 245 10" fill="none" stroke="#72e7b2" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+  <circle cx="456" cy="310" r="52" fill="#58d1e8" opacity=".18"/>
+  <circle cx="817" cy="204" r="70" fill="#72e7b2" opacity=".12"/>
+  <text x="96" y="122" fill="#d9fbff" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700">RealBench</text>
+  <text x="98" y="174" fill="#9ee7ef" font-family="Inter, Arial, sans-serif" font-size="24">Complex physical systems with real-world data</text>
+  <text x="98" y="580" fill="#d5fff0" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">Benchmark for real-world physical systems</text>
+</svg>

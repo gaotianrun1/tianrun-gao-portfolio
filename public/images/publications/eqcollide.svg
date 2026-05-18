@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="EqCollide publication thumbnail">
+  <defs>
+    <radialGradient id="r" cx=".65" cy=".45" r=".65">
+      <stop offset="0" stop-color="#293642"/>
+      <stop offset="1" stop-color="#0c1116"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#r)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M310 430c70-175 230-210 360-110s235 60 305-78" stroke="#8fe7ff" stroke-width="10" opacity=".72"/>
+    <path d="M300 402c105 120 275 128 440 0s245-120 330-28" stroke="#98f5c7" stroke-width="7" opacity=".52"/>
+    <circle cx="510" cy="302" r="92" stroke="#8fe7ff" stroke-width="6" opacity=".45"/>
+    <circle cx="795" cy="334" r="72" stroke="#98f5c7" stroke-width="6" opacity=".42"/>
+  </g>
+  <text x="96" y="122" fill="#f1fbff" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700">EqCollide</text>
+  <text x="98" y="174" fill="#b6eaf8" font-family="Inter, Arial, sans-serif" font-size="24">Equivariant, collision-aware deformable-object simulation</text>
+  <text x="98" y="580" fill="#d5fff0" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">KDD 2026</text>
+</svg>

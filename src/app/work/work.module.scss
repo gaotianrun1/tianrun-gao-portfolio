@@ -1,0 +1,22 @@
+.paperLink {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: var(--static-space-24);
+  padding: 0 var(--static-space-8);
+  border-radius: var(--radius-m);
+  color: var(--neutral-on-background-strong);
+  font-size: var(--font-size-body-s);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, currentColor 48%, transparent);
+}
+
+.paperLink:hover {
+  background: var(--neutral-alpha-weak);
+  text-decoration-color: currentColor;
+}
