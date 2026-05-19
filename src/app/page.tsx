@@ -2,7 +2,6 @@ import {
   Heading,
   Text,
   Button,
-  Avatar,
   RevealFx,
   Column,
   Row,
@@ -51,6 +50,14 @@ export default function Home() {
               {home.subline}
             </Text>
           </RevealFx>
+          <RevealFx delay={0.28} fillWidth horizontal="center" paddingBottom="24">
+            <Column horizontal="center" align="center" gap="4">
+              <Text variant="heading-strong-m">{person.name}</Text>
+              <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m">
+                Master Student, Tongji University
+              </Text>
+            </Column>
+          </RevealFx>
           <RevealFx delay={0.35} horizontal="center">
             <Row gap="12" wrap horizontal="center">
               <Button
@@ -60,24 +67,28 @@ export default function Home() {
                 variant="secondary"
                 size="m"
                 weight="default"
-                arrowIcon
+                prefixIcon="person"
               >
-                <Row gap="8" vertical="center" paddingRight="4">
-                  {about.avatar.display && (
-                    <Avatar
-                      marginRight="8"
-                      style={{ marginLeft: "-0.75rem" }}
-                      src={person.avatar}
-                      size="m"
-                    />
-                  )}
-                  About Me
-                </Row>
+                About Me
               </Button>
-              <Button href={work.path} variant="primary" size="m" arrowIcon>
+              <Button
+                data-border="rounded"
+                href={work.path}
+                variant="secondary"
+                size="m"
+                weight="default"
+                prefixIcon="book"
+              >
                 Publications
               </Button>
-              <Button href="/files/tianrun-gao-cv.pdf" variant="tertiary" size="m" prefixIcon="document">
+              <Button
+                data-border="rounded"
+                href="/cv"
+                variant="secondary"
+                size="m"
+                weight="default"
+                prefixIcon="document"
+              >
                 Download CV
               </Button>
             </Row>
@@ -93,9 +104,6 @@ export default function Home() {
             <Heading as="h2" variant="display-strong-xs" wrap="balance">
               Research focus
             </Heading>
-            <Text variant="body-default-m" onBackground="neutral-weak">
-              Scientific ML and engineering mechanics, with publications as the center of the site.
-            </Text>
           </Column>
           <Row flex={3} paddingX="20" gap="8" wrap>
             {researchAreas.map((area) => (

@@ -4,7 +4,7 @@ const person: Person = {
   firstName: "Tianrun",
   lastName: "Gao",
   name: "Tianrun Gao",
-  role: "Master Student, Civil Engineering | AI for Science",
+  role: "Master Student | AI for Science",
   avatar: "/images/avatar-tianrun.jpg",
   email: "gaotianrun1@tongji.edu.cn",
   location: "Asia/Shanghai",
@@ -13,8 +13,7 @@ const person: Person = {
 };
 
 const researchAreas = [
-  "Scientific machine learning for mechanics and engineering systems",
-  "PDE modeling and fusion-energy-facing scientific ML",
+  "AI for physical simulation & design & control & discovery (especially on PDE & Fusion Energy)",
   "Mechanics and AI-empowered mechanics",
   "Agentic systems and generative AI for science",
   "Automated numerical simulation of mechanical and engineering systems",
@@ -151,14 +150,14 @@ const social: Social = [
   {
     name: "CV",
     icon: "document",
-    link: "/files/tianrun-gao-cv.pdf",
+    link: "/cv",
     essential: true,
   },
   {
     name: "X",
-    icon: "twitter",
+    icon: "x",
     link: "https://twitter.com/gao_tianrun",
-    essential: false,
+    essential: true,
   },
   {
     name: "Email",
@@ -175,7 +174,7 @@ const home: Home = {
   title: `${person.name} | AI for Science and Engineering`,
   description:
     "Tianrun Gao's academic homepage, focused on publications, research updates, and CV.",
-  headline: <>Building AI that helps science move from simulation to discovery.</>,
+  headline: <>AI for Science at the frontier of complex physical systems.</>,
   featured: {
     display: false,
     title: <>Featured research</>,
@@ -183,9 +182,9 @@ const home: Home = {
   },
   subline: (
     <>
-      Tianrun Gao is a master student at Tongji University, currently interning at Fudan AI3 and
-      SAIS. His work sits at the intersection of scientific machine learning, mechanics, and
-      engineering systems.
+      Using state-of-the-art AI to build physics-aware models, simulators, design tools,
+      controllers, and agentic systems that help revolutionize scientific research across data,
+      equations, physics, and engineering systems.
     </>
   ),
 };
@@ -212,8 +211,8 @@ const about: About = {
     description: (
       <>
         I am a master student at{" "}
-        <a href="https://civileng.tongji.edu.cn/main.htm">Tongji University</a>, advised by Prof.
-        Hongwei Huang. I am currently studying as an intern at{" "}
+        <a href="https://civileng.tongji.edu.cn/main.htm">School of Civil Engineering, Tongji University</a>, advised by Prof.
+        Hongwei Huang. Currently, I am studying as an intern at{" "}
         <a href="https://ai3.fudan.edu.cn/">
           Artificial Intelligence Innovation and Incubation Institute at Fudan University
         </a>{" "}
@@ -229,34 +228,24 @@ const about: About = {
     title: "Experience",
     experiences: [
       {
-        company: "Artificial Intelligence Innovation and Incubation Institute at Fudan University / Shanghai Academy of AI for Science",
+        company: "Artificial Intelligence Innovation and Incubation Institute, Fudan University / Shanghai Academy of AI for Science (SAIS)",
         timeframe: "2025.10 - Now",
-        role: "Research Intern, supervised by Prof. Long Wei",
-        achievements: [
-          <>
-            Working on AI for science, generative modeling, and agentic systems for engineering and
-            physical systems.
-          </>,
-        ],
+        role: "Research Internship, supervised by Prof. Long Wei.",
+        achievements: [],
         images: [],
       },
       {
-        company: "AI Division, School of Engineering, Westlake University",
+        company: "Department of AI, Westlake University",
         timeframe: "2024.12 - 2025.10",
-        role: "Research Intern, supervised by Prof. Tailin Wu",
-        achievements: [
-          <>
-            Studied scientific machine learning, neural simulation, and benchmarks for complex
-            physical systems.
-          </>,
-        ],
+        role: "Research Internship, supervised by Prof. Tailin Wu.",
+        achievements: [],
         images: [],
       },
       {
         company: "University of Toronto",
         timeframe: "2021.07 - 2021.11",
-        role: "Mitacs Globalink Research Intern (online)",
-        achievements: [<>Participated in a research internship funded by Mitacs Globalink.</>],
+        role: "Research Internship, Funded by Mitacs Globalink",
+        achievements: [],
         images: [],
       },
     ],
@@ -286,22 +275,20 @@ const about: About = {
           { name: "PyTorch" },
           { name: "JAX" },
           { name: "PDE modeling" },
-          { name: "Mechanics-informed modeling" },
-          { name: "Numerical simulation workflows" },
+          { name: "Matlab" },
         ],
         images: [],
       },
       {
         title: "Engineering Simulation",
         tags: [
-          { name: "Abaqus" },
-          { name: "FLAC3D" },
-          { name: "PFC3D" },
-          { name: "MPM" },
-          { name: "Matlab" },
+          { name: "Abaqus (FEM)" },
+          { name: "FLAC3D (FDM)" },
+          { name: "PFC3D (DEM)" },
+          { name: "Taichi (MPM)" },
           { name: "Rhino" },
           { name: "HyperMesh" },
-          { name: "FEM / FDM / DEM" },
+          { name: "Automated numerical simulation workflows" },
         ],
         images: [],
       },
@@ -310,9 +297,9 @@ const about: About = {
         tags: [
           { name: "TOEFL 102" },
           { name: "GRE 324" },
-          { name: "Oral English" },
-          { name: "Academic reading" },
-          { name: "Academic writing" },
+          { name: "Fluent in oral English" },
+          { name: "Strong in academic reading" },
+          { name: "Strong in academic writing" },
         ],
         images: [],
       },

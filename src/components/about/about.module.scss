@@ -30,6 +30,62 @@
     }
 }
 
+.socialButton,
+.socialIconButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--neutral-alpha-medium);
+    border-radius: var(--radius-m);
+    background: var(--neutral-alpha-weak);
+    color: var(--neutral-on-background-strong);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        background: var(--neutral-alpha-medium);
+        border-color: var(--neutral-alpha-strong);
+    }
+
+    &[data-copied='true'] {
+        color: var(--brand-on-background-strong);
+        background: var(--brand-alpha-weak);
+        border-color: var(--brand-alpha-medium);
+    }
+}
+
+.socialButton {
+    gap: var(--static-space-8);
+    min-height: var(--static-space-32);
+    padding: 0 var(--static-space-12);
+    font-size: var(--font-size-label-s);
+    font-weight: 500;
+}
+
+.socialIconButton {
+    width: var(--static-space-40);
+    height: var(--static-space-40);
+}
+
+.experienceHeader {
+    align-items: flex-end;
+    gap: var(--static-space-16);
+}
+
+.experienceCompany {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 11rem);
+}
+
+.experienceTimeframe {
+    flex: 0 0 auto;
+    min-width: max-content;
+    text-align: right;
+    white-space: nowrap;
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;
@@ -37,5 +93,14 @@
 
     .blockAlign {
         align-self: center;
+    }
+
+    .experienceHeader {
+        align-items: flex-start;
+        gap: var(--static-space-8);
+    }
+
+    .experienceCompany {
+        max-width: calc(100% - 8.5rem);
     }
 }

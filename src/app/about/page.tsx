@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Button,
   Column,
   Heading,
   Icon,
@@ -16,6 +15,7 @@ import { baseURL, about, honors, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import { SocialActionLink } from "@/components/SocialActionLink";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -28,31 +28,16 @@ export async function generateMetadata() {
 }
 
 export default function About() {
-  const profileLinks: Record<string, string> = {
-    "Artificial Intelligence Innovation and Incubation Institute at Fudan University / Shanghai Academy of AI for Science":
-      "https://ai3.fudan.edu.cn/",
-    "AI Division, School of Engineering, Westlake University": "https://milab.westlake.edu.cn/index.html",
-    "University of Toronto": "https://www.utoronto.ca/",
-    "Tongji University": "https://civileng.tongji.edu.cn/main.htm",
-    "Tianjin University": "https://www.tju.edu.cn/index.htm",
-  };
-
-  const renderLinkedLabel = (label: string) =>
-    profileLinks[label] ? (
-      <a className={styles.inlineLink} href={profileLinks[label]}>
-        {label}
-      </a>
-    ) : (
-      label
-    );
-
-  const renderLinkedRole = (role: string) => {
+  const renderExperienceRole = (role: string) => {
     const links: Record<string, string> = {
+      "Artificial Intelligence Innovation and Incubation Institute at Fudan University":
+        "https://ai3.fudan.edu.cn/",
+      "Shanghai Academy of AI for Science (SAIS)": "https://www.sais.com.cn/",
       "Prof. Long Wei": "https://longweizju.github.io/",
       "Prof. Tailin Wu": "https://tailin.org/",
-      "Mitacs Globalink": "https://www.mitacs.ca/our-programs/globalink-research-internship-students/",
     };
-    const pattern = /(Prof\. Long Wei|Prof\. Tailin Wu|Mitacs Globalink)/g;
+    const pattern =
+      /(Artificial Intelligence Innovation and Incubation Institute at Fudan University|Shanghai Academy of AI for Science \(SAIS\)|Prof\. Long Wei|Prof\. Tailin Wu)/g;
 
     return role.split(pattern).map((part, index) =>
       links[part] ? (
@@ -207,23 +192,24 @@ export default function About() {
                     item.link && (
                       <React.Fragment key={item.name}>
                         <Row s={{ hide: true }}>
-                          <Button
+                          <SocialActionLink
                             key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
+                            link={item.link}
+                            email={person.email}
+                            name={item.name}
+                            icon={item.icon}
+                            className={styles.socialButton}
+                            showLabel
                           />
                         </Row>
                         <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
+                          <SocialActionLink
                             key={`${item.name}-icon`}
-                            href={item.link}
+                            link={item.link}
+                            email={person.email}
+                            name={item.name}
                             icon={item.icon}
-                            variant="secondary"
+                            className={styles.socialIconButton}
                           />
                         </Row>
                       </React.Fragment>
@@ -252,16 +238,30 @@ export default function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth gap="4">
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {renderLinkedLabel(experience.company)}
+                    <Row
+                      className={styles.experienceHeader}
+                      fillWidth
+                      horizontal="between"
+                      vertical="end"
+                      marginBottom="4"
+                    >
+                      <Text
+                        id={experience.company}
+                        className={styles.experienceCompany}
+                        variant="heading-strong-l"
+                      >
+                        {experience.company}
                       </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                      <Text
+                        className={styles.experienceTimeframe}
+                        variant="heading-default-xs"
+                        onBackground="neutral-weak"
+                      >
                         {experience.timeframe}
                       </Text>
                     </Row>
                     <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {renderLinkedRole(experience.role)}
+                      {renderExperienceRole(experience.role)}
                     </Text>
                   </Column>
                 ))}
@@ -278,7 +278,7 @@ export default function About() {
                 {about.studies.institutions.map((institution, index) => (
                   <Column key={`${institution.name}-${index}`} fillWidth gap="4">
                     <Text id={institution.name} variant="heading-strong-l">
-                      {renderLinkedLabel(institution.name)}
+                      {institution.name}
                     </Text>
                     <Text variant="heading-default-xs" onBackground="neutral-weak">
                       {institution.description}

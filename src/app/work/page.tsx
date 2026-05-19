@@ -27,13 +27,13 @@ export default function Work() {
 
   const publicationImages: Record<string, string> = {
     "RealBench: A Benchmark for Complex Physical Systems with Real-World Data":
-      "/images/publications/realbench.svg",
+      "/images/publications/realbench.png",
     "GenCP: Towards Generative Modeling Paradigm of Coupled Physics with Application to Fluid-Structure Interaction":
-      "/images/publications/gencp.svg",
+      "/images/publications/gencp.png",
     "BuildArena: A Physics-Aligned Interactive Benchmark of LLMs for Engineering Construction":
-      "/images/publications/buildarena.svg",
+      "/images/publications/buildarena.png",
     "EqCollide: Equivariant and Collision-Aware Deformable Objects Neural Simulator":
-      "/images/publications/eqcollide.svg",
+      "/images/publications/eqcollide.png",
   };
 
   return (

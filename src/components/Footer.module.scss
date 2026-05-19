@@ -1,5 +1,29 @@
 @use "./breakpoints.scss" as breakpoints;
 
+.socialLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--static-space-32);
+    height: var(--static-space-32);
+    border-radius: var(--radius-m);
+    color: var(--neutral-on-background-weak);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        color: var(--neutral-on-background-strong);
+        background: var(--neutral-alpha-weak);
+    }
+
+    &[data-copied='true'] {
+        color: var(--brand-on-background-strong);
+        background: var(--brand-alpha-weak);
+        border-radius: var(--radius-m);
+    }
+}
+
 @media (max-width: breakpoints.$s) {
     .mobile {
         text-align: center;
