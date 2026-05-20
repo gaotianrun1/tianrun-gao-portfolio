@@ -41,7 +41,7 @@ export default function Home() {
       <Column fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
+            <Heading wrap="balance" variant="display-strong-s">
               {home.headline}
             </Heading>
           </RevealFx>
@@ -51,9 +51,11 @@ export default function Home() {
             </Text>
           </RevealFx>
           <RevealFx delay={0.28} fillWidth horizontal="center" paddingBottom="24">
-            <Column horizontal="center" align="center" gap="4">
-              <Text variant="heading-strong-m">{person.name}</Text>
-              <Text wrap="balance" onBackground="neutral-weak" variant="body-default-m">
+            <Column horizontal="center" align="center" gap="8">
+              <Heading as="h1" wrap="balance" variant="heading-strong-xl">
+                {person.name}
+              </Heading>
+              <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l">
                 Master Student, Tongji University
               </Text>
             </Column>
