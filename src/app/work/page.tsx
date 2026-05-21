@@ -34,6 +34,8 @@ export default function Work() {
       "/images/publications/buildarena.png",
     "EqCollide: Equivariant and Collision-Aware Deformable Objects Neural Simulator":
       "/images/publications/eqcollide.png",
+    "HybridOM: Hybrid Physics-Based and Data-Driven Global Ocean Modeling with Efficient Spatial Downscaling":
+      "/images/publications/hybridom.png",
   };
 
   return (
