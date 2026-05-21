@@ -13,10 +13,10 @@ const person: Person = {
 };
 
 const researchAreas = [
-  "AI for physical simulation & design & control & discovery (especially on PDE & Fusion Energy)",
-  "Mechanics and AI-empowered mechanics",
-  "Agentic systems and generative AI for science",
-  "Automated numerical simulation of mechanical and engineering systems",
+  "AI for physical simulation, design, and discovery, especially on PDEs and biomechanics",
+  "Agentic systems and generative AI",
+  "AI for control and robotics",
+  "Numerical simulation of mechanical and engineering systems, and its automation",
 ];
 
 const honors = [
@@ -30,7 +30,7 @@ const honors = [
 const publicationGroups = [
   {
     title: "Conferences",
-    note: "dagger denotes equal contribution",
+    note: "asterisk denotes equal contribution",
     items: [
       {
         authors:
@@ -38,16 +38,23 @@ const publicationGroups = [
         title: "RealBench: A Benchmark for Complex Physical Systems with Real-World Data",
         venue: "ICLR 2026, Oral",
         year: "2026",
-        link: "https://realpdebench.github.io/",
+        link: "https://arxiv.org/abs/2601.01829",
       },
       {
         authors:
-          "Tianrun Gao†, Haoren Zheng†, Wenhao Deng†, Haodong Feng, Tao Zhang, Ruiqi Feng, Qianyi Chen, Tailin Wu",
+          "Tianrun Gao*, Haoren Zheng*, Wenhao Deng*, Haodong Feng, Tao Zhang, Ruiqi Feng, Qianyi Chen, Tailin Wu",
         title:
           "GenCP: Towards Generative Modeling Paradigm of Coupled Physics with Application to Fluid-Structure Interaction",
         venue: "ICLR 2026",
         year: "2026",
         link: "https://arxiv.org/abs/2601.19541",
+      },
+      {
+        authors: "Qianyi Chen*, Tianrun Gao*, Chenbo Jiang*, Tailin Wu",
+        title: "EqCollide: Equivariant and Collision-Aware Deformable Objects Neural Simulator",
+        venue: "KDD 2026",
+        year: "2026",
+        link: "https://arxiv.org/abs/2506.05797",
       },
       {
         authors:
@@ -56,14 +63,15 @@ const publicationGroups = [
           "BuildArena: A Physics-Aligned Interactive Benchmark of LLMs for Engineering Construction",
         venue: "ICML 2026",
         year: "2026",
-        link: "https://build-arena.github.io/",
+        link: "https://www.arxiv.org/abs/2510.16559",
       },
       {
-        authors: "Qianyi Chen†, Tianrun Gao†, Chenbo Jiang†, Tailin Wu",
-        title: "EqCollide: Equivariant and Collision-Aware Deformable Objects Neural Simulator",
-        venue: "KDD 2026",
+        authors: "Ruiqi Shu, Xiaohui Zhong, Qiusheng Huang, Ruijian Gou, Tianrun Gao, Hao Li, Xiaomeng Huang",
+        title:
+          "HybridOM: Hybrid Physics-Based and Data-Driven Global Ocean Modeling with Efficient Spatial Downscaling",
+        venue: "ICML 2026",
         year: "2026",
-        link: "https://arxiv.org/abs/2506.05797v1",
+        link: "https://arxiv.org/abs/2602.00598",
       },
       {
         authors: "T. R. Gao, D. M. Zhang, X. M. Liu, H. W. Huang",
