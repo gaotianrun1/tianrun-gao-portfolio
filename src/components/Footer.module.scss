@@ -6,8 +6,13 @@
     justify-content: center;
     width: var(--static-space-32);
     height: var(--static-space-32);
+    padding: 0;
+    border: 0;
     border-radius: var(--radius-m);
+    appearance: none;
+    background: transparent;
     color: var(--neutral-on-background-weak);
+    font: inherit;
     text-decoration: none;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;

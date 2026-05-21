@@ -37,8 +37,10 @@
     justify-content: center;
     border: 1px solid var(--neutral-alpha-medium);
     border-radius: var(--radius-m);
+    appearance: none;
     background: var(--neutral-alpha-weak);
     color: var(--neutral-on-background-strong);
+    font: inherit;
     text-decoration: none;
     cursor: pointer;
     transition: background 0.2s ease, border-color 0.2s ease;

@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "@once-ui-system/core";
+import { Icon, useToast } from "@once-ui-system/core";
 import { useState } from "react";
 import { IconName } from "@/resources/icons";
 
@@ -21,27 +21,63 @@ export function SocialActionLink({
   className,
   showLabel = false,
 }: SocialActionLinkProps) {
+  const { addToast } = useToast();
   const [copied, setCopied] = useState(false);
   const isEmail = name === "Email";
   const label = isEmail && copied ? "Copied" : name;
 
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(email);
-    } catch {
-      const textarea = document.createElement("textarea");
-      textarea.value = email;
-      textarea.setAttribute("readonly", "");
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
+  const writeToClipboard = async (value: string) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(value);
+        return true;
+      } catch {
+        // Fall through to the textarea copy path for stricter embedded browsers.
+      }
     }
 
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1600);
+    const textarea = document.createElement("textarea");
+    textarea.value = value;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.top = "0";
+    textarea.style.left = "-9999px";
+    textarea.style.opacity = "0";
+
+    let appended = false;
+    try {
+      document.body.appendChild(textarea);
+      appended = true;
+      textarea.focus();
+      textarea.select();
+      textarea.setSelectionRange(0, textarea.value.length);
+      return document.execCommand("copy");
+    } catch {
+      return false;
+    } finally {
+      if (appended) {
+        document.body.removeChild(textarea);
+      }
+    }
+  };
+
+  const copyEmail = async () => {
+    const didCopy = await writeToClipboard(email);
+
+    if (didCopy) {
+      setCopied(true);
+      addToast({
+        variant: "success",
+        message: `Email copied: ${email}`,
+      });
+      window.setTimeout(() => setCopied(false), 1600);
+      return;
+    }
+
+    addToast({
+      variant: "danger",
+      message: `Could not copy email. Email: ${email}`,
+    });
   };
 
   const content = (
