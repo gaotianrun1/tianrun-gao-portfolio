@@ -33,12 +33,11 @@ const publicationGroups = [
     note: "asterisk denotes equal contribution",
     items: [
       {
-        authors:
-          "Peiyan Hu, Haodong Feng, Hongyuan Liu, Tongtong Yan, Wenhao Deng, Tianrun Gao, Rong Zheng, Haoren Zheng, Chenglei Yu, Chuanrui Wang, Kaiwen Li, Zhi-Ming Ma, Dezhi Zhou, Xingcai Lu, Dixia Fan, Tailin Wu",
-        title: "RealBench: A Benchmark for Complex Physical Systems with Real-World Data",
-        venue: "ICLR 2026, Oral",
+        authors: "Qianyi Chen*, Tianrun Gao*, Chenbo Jiang*, Tailin Wu",
+        title: "EqCollide: Equivariant and Collision-Aware Deformable Objects Neural Simulator",
+        venue: "KDD 2026, Oral",
         year: "2026",
-        link: "https://arxiv.org/abs/2601.01829",
+        link: "https://arxiv.org/abs/2506.05797",
       },
       {
         authors:
@@ -50,11 +49,12 @@ const publicationGroups = [
         link: "https://arxiv.org/abs/2601.19541",
       },
       {
-        authors: "Qianyi Chen*, Tianrun Gao*, Chenbo Jiang*, Tailin Wu",
-        title: "EqCollide: Equivariant and Collision-Aware Deformable Objects Neural Simulator",
-        venue: "KDD 2026",
+        authors:
+          "Peiyan Hu, Haodong Feng, Hongyuan Liu, Tongtong Yan, Wenhao Deng, Tianrun Gao, Rong Zheng, Haoren Zheng, Chenglei Yu, Chuanrui Wang, Kaiwen Li, Zhi-Ming Ma, Dezhi Zhou, Xingcai Lu, Dixia Fan, Tailin Wu",
+        title: "RealBench: A Benchmark for Complex Physical Systems with Real-World Data",
+        venue: "ICLR 2026, Oral",
         year: "2026",
-        link: "https://arxiv.org/abs/2506.05797",
+        link: "https://arxiv.org/abs/2601.01829",
       },
       {
         authors:
