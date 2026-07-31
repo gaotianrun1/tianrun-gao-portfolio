@@ -1,9 +1,10 @@
-import { Column, Heading, Line, Media, Meta, Row, Schema, Text } from "@once-ui-system/core";
-import { baseURL, about, person, publicationGroups, work } from "@/resources";
+import { about, baseURL, person, publicationGroups, work } from "@/resources";
+import { generateSiteMetadata } from "@/utils/siteMetadata";
+import { Column, Heading, Line, Media, Row, Schema, Text } from "@once-ui-system/core";
 import styles from "./work.module.scss";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: work.title,
     description: work.description,
     baseURL: baseURL,
@@ -16,26 +17,9 @@ export default function Work() {
   const highlightAuthor = (authors: string) => {
     const parts = authors.split(/(Tianrun Gao|T\. R\. Gao)/g);
 
-    return parts.map((part, index) =>
-      part === "Tianrun Gao" || part === "T. R. Gao" ? (
-        <strong key={`${part}-${index}`}>{part}</strong>
-      ) : (
-        part
-      ),
+    return parts.map((part) =>
+      part === "Tianrun Gao" || part === "T. R. Gao" ? <strong key={part}>{part}</strong> : part,
     );
-  };
-
-  const publicationImages: Record<string, string> = {
-    "RealBench: A Benchmark for Complex Physical Systems with Real-World Data":
-      "/images/publications/realbench.png",
-    "GenCP: Towards Generative Modeling Paradigm of Coupled Physics with Application to Fluid-Structure Interaction":
-      "/images/publications/gencp.png",
-    "BuildArena: A Physics-Aligned Interactive Benchmark of LLMs for Engineering Construction":
-      "/images/publications/buildarena.png",
-    "EqCollide: Equivariant and Collision-Aware Deformable Objects Neural Simulator":
-      "/images/publications/eqcollide.png",
-    "HybridOM: Hybrid Physics-Based and Data-Driven Global Ocean Modeling with Efficient Spatial Downscaling":
-      "/images/publications/hybridom.png",
   };
 
   return (
@@ -69,7 +53,7 @@ export default function Work() {
             </Column>
             <Column as="ol" gap="20">
               {group.items.map((item) => {
-                const image = publicationImages[item.title];
+                const image = "image" in item ? item.image : undefined;
 
                 return (
                   <Row
@@ -111,8 +95,9 @@ export default function Work() {
                           <a
                             className={styles.paperLink}
                             href={item.link}
+                            aria-label={`View paper: ${item.title}`}
                           >
-                            Link
+                            View paper
                           </a>
                         )}
                       </Row>

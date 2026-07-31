@@ -1,19 +1,21 @@
+import { FeaturedPublications } from "@/components";
+import { about, baseURL, home, person, researchAreas, work } from "@/resources";
+import { generateSiteMetadata } from "@/utils/siteMetadata";
 import {
-  Heading,
-  Text,
   Button,
-  RevealFx,
   Column,
+  Heading,
+  Line,
+  RevealFx,
   Row,
   Schema,
-  Meta,
-  Line,
   Tag,
+  Text,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, researchAreas, work } from "@/resources";
+import styles from "./home.module.scss";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: home.title,
     description: home.description,
     baseURL: baseURL,
@@ -31,7 +33,7 @@ export default function Home() {
         path={home.path}
         title={home.title}
         description={home.description}
-        image={`/api/og/generate?title=${encodeURIComponent(home.title)}`}
+        image={home.image}
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,
@@ -52,11 +54,11 @@ export default function Home() {
           </RevealFx>
           <RevealFx delay={0.28} fillWidth horizontal="center" paddingBottom="24">
             <Column horizontal="center" align="center" gap="8">
-              <Heading as="h1" wrap="balance" variant="heading-strong-xl">
+              <Heading as="h2" wrap="balance" variant="heading-strong-xl">
                 {person.name}
               </Heading>
               <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-l">
-                Master Student, Tongji University
+                {person.role} · Tongji University
               </Text>
             </Column>
           </RevealFx>
@@ -107,9 +109,9 @@ export default function Home() {
               Research focus
             </Heading>
           </Column>
-          <Row flex={3} paddingX="20" gap="8" wrap>
+          <Row className={styles.researchTags} flex={3} paddingX="20" gap="8" wrap>
             {researchAreas.map((area) => (
-              <Tag key={area} size="l">
+              <Tag className={styles.researchTag} key={area} size="l">
                 {area}
               </Tag>
             ))}
@@ -119,6 +121,7 @@ export default function Home() {
           <Line maxWidth={48} />
         </Row>
       </Column>
+      <FeaturedPublications />
     </Column>
   );
 }

@@ -1,10 +1,32 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+
+type FeaturedPublicationInfo = {
+  rank: number;
+  label: string;
+  summary: string;
+};
+
+type PublicationItem = {
+  authors: string;
+  title: string;
+  venue: string;
+  year: string;
+  link: string;
+  image?: string;
+  featured?: FeaturedPublicationInfo;
+};
+
+type PublicationGroup = {
+  title: string;
+  note: string;
+  items: PublicationItem[];
+};
 
 const person: Person = {
   firstName: "Tianrun",
   lastName: "Gao",
   name: "Tianrun Gao",
-  role: "Master Student | AI for Science",
+  role: "Master’s Student | AI for Science",
   avatar: "/images/avatar-tianrun.jpg",
   email: "gaotianrun1@tongji.edu.cn",
   location: "Asia/Shanghai",
@@ -13,10 +35,10 @@ const person: Person = {
 };
 
 const researchAreas = [
-  "AI for physical simulation, design, and discovery, especially on PDEs and biomechanics",
-  "Agentic systems and generative AI",
-  "AI for control and robotics",
-  "Numerical simulation of mechanical and engineering systems, and its automation",
+  "Physics-aware AI for simulation, design, control, and discovery",
+  "PDEs, coupled physical systems, and fusion energy",
+  "Generative models and agentic systems for science",
+  "Automated numerical simulation for mechanics and engineering",
 ];
 
 const honors = [
@@ -27,7 +49,7 @@ const honors = [
   "Tianjin University Research and Design Institute Scholarship",
 ];
 
-const publicationGroups = [
+const publicationGroups: PublicationGroup[] = [
   {
     title: "Conferences",
     note: "asterisk denotes equal contribution",
@@ -38,6 +60,13 @@ const publicationGroups = [
         venue: "KDD 2026, Oral",
         year: "2026",
         link: "https://arxiv.org/abs/2506.05797",
+        image: "/images/publications/eqcollide.png",
+        featured: {
+          rank: 3,
+          label: "Equal contribution · Oral",
+          summary:
+            "An equivariant, collision-aware neural simulator for deformable-object dynamics.",
+        },
       },
       {
         authors:
@@ -47,6 +76,13 @@ const publicationGroups = [
         venue: "ICLR 2026",
         year: "2026",
         link: "https://arxiv.org/abs/2601.19541",
+        image: "/images/publications/gencp.png",
+        featured: {
+          rank: 1,
+          label: "First author",
+          summary:
+            "A generative modeling paradigm for coupled physics, demonstrated on fluid–structure interaction.",
+        },
       },
       {
         authors:
@@ -55,6 +91,12 @@ const publicationGroups = [
         venue: "ICLR 2026, Oral",
         year: "2026",
         link: "https://arxiv.org/abs/2601.01829",
+        image: "/images/publications/realbench.png",
+        featured: {
+          rank: 2,
+          label: "Oral",
+          summary: "A real-world benchmark for learning and evaluating complex physical systems.",
+        },
       },
       {
         authors:
@@ -64,14 +106,17 @@ const publicationGroups = [
         venue: "ICML 2026",
         year: "2026",
         link: "https://www.arxiv.org/abs/2510.16559",
+        image: "/images/publications/buildarena.png",
       },
       {
-        authors: "Ruiqi Shu, Xiaohui Zhong, Qiusheng Huang, Ruijian Gou, Tianrun Gao, Hao Li, Xiaomeng Huang",
+        authors:
+          "Ruiqi Shu, Xiaohui Zhong, Qiusheng Huang, Ruijian Gou, Tianrun Gao, Hao Li, Xiaomeng Huang",
         title:
           "HybridOM: Hybrid Physics-Based and Data-Driven Global Ocean Modeling with Efficient Spatial Downscaling",
         venue: "ICML 2026",
         year: "2026",
         link: "https://arxiv.org/abs/2602.00598",
+        image: "/images/publications/hybridom.png",
       },
       {
         authors: "T. R. Gao, D. M. Zhang, X. M. Liu, H. W. Huang",
@@ -83,7 +128,8 @@ const publicationGroups = [
       },
       {
         authors: "T. R. Gao, D. M. Zhang, H. W. Huang",
-        title: "Experimental Study on Tunneling-Induced Disturbance and Propagation in Complex Environment",
+        title:
+          "Experimental Study on Tunneling-Induced Disturbance and Propagation in Complex Environment",
         venue: "PIARC 2025, Oral Presentation",
         year: "2025",
         link: "https://www.piarc-seminar-cq.cn/",
@@ -112,7 +158,8 @@ const publicationGroups = [
     items: [
       {
         authors: "H. W. Huang, T. R. Gao‡, D. M. Zhang",
-        title: "A Hybrid Approach for Modifying Tunneling-Induced Response in Existing Multi-Tunnel Environment",
+        title:
+          "A Hybrid Approach for Modifying Tunneling-Induced Response in Existing Multi-Tunnel Environment",
         venue: "Computers and Geotechnics, 179, 106921",
         year: "2025",
         link: "https://doi.org/10.1016/j.compgeo.2024.106921",
@@ -177,12 +224,12 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.svg",
+  image: "/images/og/home.png",
   label: "Home",
   title: `${person.name} | AI for Science and Engineering`,
   description:
-    "Tianrun Gao's academic homepage, focused on publications, research updates, and CV.",
-  headline: <>AI for Science at the frontier of complex physical systems.</>,
+    "Tianrun Gao develops physics-aware simulators, generative models, and scientific agents for complex physical and engineering systems.",
+  headline: <>AI for Science across complex physical systems.</>,
   featured: {
     display: false,
     title: <>Featured research</>,
@@ -190,9 +237,8 @@ const home: Home = {
   },
   subline: (
     <>
-      Using state-of-the-art AI to build physics-aware models, simulators, design tools,
-      controllers, and agentic systems that help revolutionize scientific research across data,
-      equations, physics, and engineering systems.
+      I develop physics-aware simulators, generative models, and scientific agents for PDEs, coupled
+      systems, engineering design, and control.
     </>
   ),
 };
@@ -218,13 +264,15 @@ const about: About = {
     title: "Profile",
     description: (
       <>
-        I am a master student at{" "}
-        <a href="https://civileng.tongji.edu.cn/main.htm">School of Civil Engineering, Tongji University</a>, advised by Prof.
-        Hongwei Huang. Currently, I am studying as an intern at{" "}
+        I am a master’s student at{" "}
+        <a href="https://civileng.tongji.edu.cn/main.htm">
+          School of Civil Engineering, Tongji University
+        </a>
+        , advised by Prof. Hongwei Huang. I am currently a research intern at the{" "}
         <a href="https://ai3.fudan.edu.cn/">
           Artificial Intelligence Innovation and Incubation Institute at Fudan University
         </a>{" "}
-        and the <a href="https://www.sais.com.cn/">Shanghai Academy of AI for Science (SAIS)</a>,
+        and at the <a href="https://www.sais.com.cn/">Shanghai Academy of AI for Science (SAIS)</a>,
         supervised by <a href="https://longweizju.github.io/">Prof. Long Wei</a>. I completed my
         undergraduate studies at <a href="https://www.tju.edu.cn/index.htm">Tianjin University</a>{" "}
         in 2022.
@@ -236,23 +284,24 @@ const about: About = {
     title: "Experience",
     experiences: [
       {
-        company: "Artificial Intelligence Innovation and Incubation Institute, Fudan University / Shanghai Academy of AI for Science (SAIS)",
-        timeframe: "2025.10 - Now",
-        role: "Research Internship, supervised by Prof. Long Wei.",
+        company:
+          "Artificial Intelligence Innovation and Incubation Institute, Fudan University / Shanghai Academy of AI for Science (SAIS)",
+        timeframe: "Oct 2025 — Present",
+        role: "Research intern, supervised by Prof. Long Wei.",
         achievements: [],
         images: [],
       },
       {
         company: "Department of AI, Westlake University",
-        timeframe: "2024.12 - 2025.10",
-        role: "Research Internship, supervised by Prof. Tailin Wu.",
+        timeframe: "Dec 2024 — Oct 2025",
+        role: "Research intern, supervised by Prof. Tailin Wu.",
         achievements: [],
         images: [],
       },
       {
         company: "University of Toronto",
-        timeframe: "2021.07 - 2021.11",
-        role: "Research Internship, Funded by Mitacs Globalink",
+        timeframe: "Jul 2021 — Nov 2021",
+        role: "Research intern, funded by Mitacs Globalink.",
         achievements: [],
         images: [],
       },
@@ -264,11 +313,11 @@ const about: About = {
     institutions: [
       {
         name: "Tongji University",
-        description: <>Master of Civil Engineering, 2022.09 - Now.</>,
+        description: <>Master of Civil Engineering, Sep 2022 — Present.</>,
       },
       {
         name: "Tianjin University",
-        description: <>Bachelor of Engineering, 2018.09 - 2022.06.</>,
+        description: <>Bachelor of Engineering, Sep 2018 — Jun 2022.</>,
       },
     ],
   },
@@ -326,8 +375,15 @@ const work: Work = {
   path: "/work",
   label: "Publications",
   title: `Publications - ${person.name}`,
-  description: `Academic publications and research projects by ${person.name}`,
+  description: `Peer-reviewed publications and research projects by ${person.name} in AI for science, physical systems, and engineering.`,
 };
+
+const featuredPublications = publicationGroups
+  .flatMap((group) => group.items)
+  .filter((item): item is PublicationItem & { image: string; featured: FeaturedPublicationInfo } =>
+    Boolean(item.image && item.featured),
+  )
+  .sort((a, b) => a.featured.rank - b.featured.rank);
 
 const gallery: Gallery = {
   path: "/gallery",
@@ -349,4 +405,5 @@ export {
   researchAreas,
   honors,
   publicationGroups,
+  featuredPublications,
 };

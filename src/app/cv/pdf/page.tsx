@@ -1,7 +1,7 @@
-import { Meta } from "@once-ui-system/core";
 import { baseURL, person } from "@/resources";
 import { CvDownloadButton } from "@/components/CvDownloadButton";
 import styles from "../cv.module.scss";
+import { generateSiteMetadata } from "@/utils/siteMetadata";
 
 const pages = [1, 2, 3];
 const cvFilename = "CV of Tianrun Gao.pdf";
@@ -12,7 +12,7 @@ const cvDownloadPath =
     : `${basePath}/cv/download`;
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: `CV Preview - ${person.name}`,
     description: `PDF preview of the curriculum vitae of ${person.name}`,
     baseURL,

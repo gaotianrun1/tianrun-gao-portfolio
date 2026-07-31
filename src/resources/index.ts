@@ -11,6 +11,7 @@ export {
   researchAreas,
   honors,
   publicationGroups,
+  featuredPublications,
 } from "./content";
 
 export {

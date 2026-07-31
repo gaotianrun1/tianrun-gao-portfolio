@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
+import { about, blog, display, gallery, person, routes, work } from "@/resources";
 import styles from "./Header.module.scss";
+import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
   timeZone: string;
@@ -73,7 +73,9 @@ export const Header = () => {
         }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.locationName ?? person.location}</Row>}
+          {display.location && (
+            <Row s={{ hide: true }}>{person.locationName ?? person.location}</Row>
+          )}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -87,7 +89,12 @@ export const Header = () => {
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton
+                  aria-label="Home"
+                  prefixIcon="home"
+                  href="/"
+                  selected={pathname === "/"}
+                />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
@@ -97,6 +104,7 @@ export const Header = () => {
                       prefixIcon="person"
                       href="/about"
                       label={about.label}
+                      aria-label={about.label}
                       selected={pathname === "/about"}
                     />
                   </Row>
@@ -104,6 +112,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="person"
                       href="/about"
+                      aria-label={about.label}
                       selected={pathname === "/about"}
                     />
                   </Row>
@@ -116,6 +125,7 @@ export const Header = () => {
                       prefixIcon="grid"
                       href="/work"
                       label={work.label}
+                      aria-label={work.label}
                       selected={pathname.startsWith("/work")}
                     />
                   </Row>
@@ -123,6 +133,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="grid"
                       href="/work"
+                      aria-label={work.label}
                       selected={pathname.startsWith("/work")}
                     />
                   </Row>
@@ -135,6 +146,7 @@ export const Header = () => {
                       prefixIcon="book"
                       href="/blog"
                       label={blog.label}
+                      aria-label={blog.label}
                       selected={pathname.startsWith("/blog")}
                     />
                   </Row>
@@ -142,6 +154,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="book"
                       href="/blog"
+                      aria-label={blog.label}
                       selected={pathname.startsWith("/blog")}
                     />
                   </Row>
@@ -154,6 +167,7 @@ export const Header = () => {
                       prefixIcon="gallery"
                       href="/gallery"
                       label={gallery.label}
+                      aria-label={gallery.label}
                       selected={pathname.startsWith("/gallery")}
                     />
                   </Row>
@@ -161,6 +175,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="gallery"
                       href="/gallery"
+                      aria-label={gallery.label}
                       selected={pathname.startsWith("/gallery")}
                     />
                   </Row>

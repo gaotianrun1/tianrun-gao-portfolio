@@ -4,20 +4,20 @@ import "@/resources/custom.css";
 
 import classNames from "classnames";
 
+import { Footer, Header, Providers, RouteGuard } from "@/components";
+import { baseURL, dataStyle, effects, fonts, home, style } from "@/resources";
+import { generateSiteMetadata } from "@/utils/siteMetadata";
 import {
   Background,
   Column,
   Flex,
-  Meta,
-  opacity,
   RevealFx,
-  SpacingToken,
+  type SpacingToken,
+  type opacity,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: home.title,
     description: home.description,
     baseURL: baseURL,
@@ -58,10 +58,7 @@ export default async function RootLayout({
           />
         ) : null}
         {process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ? (
-          <meta
-            name="msvalidate.01"
-            content={process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION}
-          />
+          <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION} />
         ) : null}
         <script
           id="theme-init"

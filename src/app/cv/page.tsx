@@ -1,6 +1,7 @@
-import { Column, Heading, Meta, Row, Schema } from "@once-ui-system/core";
-import { baseURL, person } from "@/resources";
 import { CvDownloadButton } from "@/components/CvDownloadButton";
+import { baseURL, person } from "@/resources";
+import { generateSiteMetadata } from "@/utils/siteMetadata";
+import { Column, Heading, Row, Schema } from "@once-ui-system/core";
 import styles from "./cv.module.scss";
 
 const pages = [1, 2, 3];
@@ -12,7 +13,7 @@ const cvDownloadPath =
     : `${basePath}/cv/download`;
 
 export async function generateMetadata() {
-  return Meta.generate({
+  return generateSiteMetadata({
     title: `CV - ${person.name}`,
     description: `Curriculum vitae of ${person.name}`,
     baseURL,
@@ -39,7 +40,11 @@ export default function CVPage() {
         <Heading variant="display-strong-l" align="center">
           CV
         </Heading>
-        <CvDownloadButton className={styles.downloadLink} href={cvDownloadPath} filename={cvFilename} />
+        <CvDownloadButton
+          className={styles.downloadLink}
+          href={cvDownloadPath}
+          filename={cvFilename}
+        />
       </Column>
       <Column gap="l" fillWidth horizontal="center" marginBottom="40">
         {pages.map((page) => (
